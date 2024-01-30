@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@javafx.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.store.CrudController">
+   <children>
+      <Rectangle fill="#5995ed" height="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle fill="#ebebeb" height="380.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0" AnchorPane.bottomAnchor="0.0" />
+      <Button id="addClient" alignment="CENTER_RIGHT" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#toCreatingPane" prefHeight="30.0" prefWidth="100.0" text="Adicionar" AnchorPane.topAnchor="35.0" />
+      <Button alignment="CENTER_RIGHT" layoutX="25.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#toReadingPane" prefHeight="30.0" prefWidth="100.0" text="Consultar" AnchorPane.topAnchor="75.0" />
+      <AnchorPane fx:id="creatingUserPane" layoutX="150.0" prefHeight="400.0" prefWidth="451.0">
+         <children>
+            <TextField fx:id="userId" editable="false" layoutX="20.0" layoutY="36.0" opacity="0.5" prefHeight="25.0" prefWidth="58.0" promptText="ID" AnchorPane.leftAnchor="20.0" />
+            <TextField fx:id="userName" layoutX="20.0" layoutY="81.0" prefHeight="25.0" prefWidth="150.0" promptText="Nome" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="81.0" />
+            <TextField fx:id="userSurname" layoutX="180.0" layoutY="81.0" prefHeight="25.0" prefWidth="250.0" promptText="Sobrenome" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="81.0" />
+            <RadioButton fx:id="toggleMasculine" layoutX="20.0" layoutY="131.0" mnemonicParsing="false" text="Masculino" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="131.0">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroupSex" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="toggleFeminine" layoutX="100.0" layoutY="131.0" mnemonicParsing="false" text="Feminino" toggleGroup="$toggleGroupSex" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="131.0" />
+            <DatePicker fx:id="userBirthdate" layoutX="180.0" layoutY="131.0" prefHeight="25.0" prefWidth="200.0" promptText="Data de nascimento" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="131.0" />
+            <TextField fx:id="userCep" layoutX="20.0" layoutY="181.0" prefHeight="25.0" prefWidth="150.0" promptText="CEP" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="181.0" />
+            <Button layoutX="180.0" layoutY="181.0" mnemonicParsing="false" onMouseClicked="#getAddressByCep" prefHeight="25.0" prefWidth="75.0" text="Buscar" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="181.0" />
+            <TextField fx:id="userAddress" layoutX="20.0" layoutY="231.0" prefHeight="25.0" prefWidth="300.0" promptText="Endereço" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="231.0" />
+            <TextField fx:id="userCity" layoutX="20.0" layoutY="281.0" prefHeight="25.0" prefWidth="150.0" promptText="Cidade" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="281.0" />
+            <TextField fx:id="userState" layoutX="180.0" layoutY="281.0" prefHeight="25.0" prefWidth="75.0" promptText="Estado" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="281.0" />
+            <TextField fx:id="userEmail" layoutX="20.0" layoutY="331.0" prefHeight="25.0" prefWidth="300.0" promptText="Email" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="331.0" />
+            <Button layoutX="20.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#createUser" prefHeight="25.0" prefWidth="75.0" text="Concluir" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="361.0" />
+            <Button layoutX="105.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#resetForm" prefHeight="25.0" prefWidth="75.0" text="Limpar" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="361.0" />
+            <Label layoutX="20.0" layoutY="111.0" prefHeight="17.0" prefWidth="36.0" text="Sexo" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="111.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="61.0" prefHeight="17.0" prefWidth="149.0" text="Nome" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="61.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="61.0" prefHeight="17.0" prefWidth="250.0" text="Sobrenome" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="61.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="111.0" prefHeight="17.0" prefWidth="200.0" text="Data de nascimento" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="111.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="161.0" prefHeight="17.0" prefWidth="149.0" text="CEP" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="161.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="211.0" prefHeight="17.0" prefWidth="400.0" text="Endereço" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="211.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="261.0" prefHeight="17.0" prefWidth="150.0" text="Cidade" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="261.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="261.0" prefHeight="17.0" prefWidth="75.0" text="Estado" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="261.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="311.0" prefHeight="17.0" prefWidth="75.0" text="Email" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="311.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="19.0" prefHeight="17.0" prefWidth="58.0" text="ID" AnchorPane.leftAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="readingUserPane" layoutX="150.0" prefHeight="400.0" prefWidth="451.0" visible="false">
+         <children>
+            <TextField fx:id="searchingId" layoutX="31.0" layoutY="35.0" prefHeight="25.0" prefWidth="50.0" promptText="ID" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="35.0" />
+            <TextField fx:id="searchingName" layoutX="91.0" layoutY="35.0" prefHeight="25.0" prefWidth="250.0" promptText="Nome de usuário" AnchorPane.leftAnchor="91.0" AnchorPane.topAnchor="35.0" />
+            <Button layoutX="351.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#searchByNameOrId" prefHeight="25.0" prefWidth="70.0" text="Buscar" AnchorPane.leftAnchor="351.0" AnchorPane.topAnchor="35.0" />
+            <TableView id="tableView" fx:id="resultTable" prefHeight="321.0" prefWidth="451.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
+              <columns>
+                <TableColumn fx:id="columnId" prefWidth="30.0" text="ID" />
+                <TableColumn fx:id="columnName" text="Nome" />
+                  <TableColumn fx:id="columnEmail" prefWidth="220.0" text="Email" />
+                  <TableColumn fx:id="updateColumn" minWidth="0.0" prefWidth="50.0" />
+                  <TableColumn fx:id="deleteColumn" minWidth="0.0" prefWidth="50.0" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/add-group.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/loupe.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>
